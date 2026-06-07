@@ -5,15 +5,203 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F7F8FA"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <LinearLayout
+        android:id="@+id/startScreen"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/startTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Simple Maze Game"
+            android:textColor="#1F2933"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/startSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="Introduction to Mobile Systems - Lab Task 5"
+            android:textColor="#52606D"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/startButton"
+            android:layout_width="220dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="36dp"
+            android:backgroundTint="#1565C0"
+            android:text="Start"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/gameScreen"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="20dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/upButton"
+            android:layout_width="128dp"
+            android:layout_height="56dp"
+            android:text="Up"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/leftButton"
+            android:layout_width="120dp"
+            android:layout_height="56dp"
+            android:text="Left"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/roomPanel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/rightButton"
+            app:layout_constraintStart_toEndOf="@id/leftButton"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/roomText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#1F2933"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                tools:text="Room: row 2, column 1" />
+
+            <TextView
+                android:id="@+id/roomValueText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:textColor="#52606D"
+                android:textSize="16sp"
+                tools:text="Room value: 28" />
+
+            <TextView
+                android:id="@+id/moveFeedbackText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:gravity="center"
+                android:text="Choose an available direction."
+                android:textColor="#323F4B"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/rightButton"
+            android:layout_width="120dp"
+            android:layout_height="56dp"
+            android:text="Right"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/downButton"
+            android:layout_width="128dp"
+            android:layout_height="56dp"
+            android:text="Down"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/resultScreen"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/resultTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="You win!"
+            android:textColor="#1F2933"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/resultDetailsText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:textColor="#52606D"
+            android:textSize="16sp"
+            tools:text="Finished at row 2, column 3." />
+
+        <Button
+            android:id="@+id/restartButton"
+            android:layout_width="220dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="#2E7D32"
+            android:text="Restart"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/backToMenuButton"
+            android:layout_width="220dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#1565C0"
+            android:text="Back to Menu"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
