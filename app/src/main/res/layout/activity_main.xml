@@ -75,7 +75,7 @@
 
         <Button
             android:id="@+id/leftButton"
-            android:layout_width="120dp"
+            android:layout_width="96dp"
             android:layout_height="56dp"
             android:text="Left"
             android:textAllCaps="false"
@@ -102,7 +102,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textColor="#1F2933"
-                android:textSize="22sp"
+                android:textSize="17sp"
                 android:textStyle="bold"
                 tools:text="Room: row 2, column 1" />
 
@@ -129,7 +129,7 @@
 
         <Button
             android:id="@+id/rightButton"
-            android:layout_width="120dp"
+            android:layout_width="96dp"
             android:layout_height="56dp"
             android:text="Right"
             android:textAllCaps="false"
