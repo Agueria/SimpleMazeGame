@@ -5,6 +5,8 @@ Lab number: Lab Task 5
 Student name: Cem Cakir  
 Student ID: 44463
 
+## Description
+
 Simple Maze Game is an Android Studio project written in Java. The app implements a room-based maze where each room is stored in a 2D integer grid and movement is controlled by bitmask door values. The default 4x4 maze uses bit 16 to mark the start room at row 2, column 1, and the game finishes immediately when the player reaches the room with value 0 at row 2, column 3.
 
 ## Features
