@@ -45,6 +45,26 @@ public class MazeFlowInstrumentedTest {
     public void sampleMazePathCanReachResultScreen() {
         onView(withId(R.id.startButton)).perform(click());
 
+        finishMaze();
+
+        onView(withText("You win!")).check(matches(isDisplayed()));
+        onView(withText("Finished at row 2, column 3.")).check(matches(isDisplayed()));
+        onView(withId(R.id.restartButton)).check(matches(isDisplayed()));
+        onView(withId(R.id.backToMenuButton)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void backToMenuFromResultReturnsToStartScreen() {
+        onView(withId(R.id.startButton)).perform(click());
+
+        finishMaze();
+        onView(withId(R.id.backToMenuButton)).perform(click());
+
+        onView(withId(R.id.startButton)).check(matches(isDisplayed()));
+        onView(withText("Simple Maze Game")).check(matches(isDisplayed()));
+    }
+
+    private void finishMaze() {
         onView(withId(R.id.downButton)).perform(click());
         onView(withId(R.id.downButton)).perform(click());
         onView(withId(R.id.rightButton)).perform(click());
@@ -57,10 +77,5 @@ public class MazeFlowInstrumentedTest {
         onView(withId(R.id.upButton)).perform(click());
         onView(withId(R.id.leftButton)).perform(click());
         onView(withId(R.id.downButton)).perform(click());
-
-        onView(withText("You win!")).check(matches(isDisplayed()));
-        onView(withText("Finished at row 2, column 3.")).check(matches(isDisplayed()));
-        onView(withId(R.id.restartButton)).check(matches(isDisplayed()));
-        onView(withId(R.id.backToMenuButton)).check(matches(isDisplayed()));
     }
 }

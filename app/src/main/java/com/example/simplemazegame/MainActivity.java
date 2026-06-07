@@ -131,7 +131,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void renderCurrentScreen() {
-        if (currentScreen == SCREEN_RESULT || currentState.isFinished()) {
+        if (currentScreen == SCREEN_GAME && currentState.isFinished()) {
+            currentScreen = SCREEN_RESULT;
+        }
+
+        if (currentScreen == SCREEN_RESULT) {
             renderResultScreen();
         } else if (currentScreen == SCREEN_GAME) {
             renderGameScreen();
